@@ -1,0 +1,207 @@
+.skills-page {
+    background: #0f0f0f;
+}
+
+.skills-hero {
+    background: linear-gradient(135deg, #1e1e1e 0%, #0f0f0f 68%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: clamp(6rem, 14vw, 11rem) 0 clamp(5rem, 10vw, 8rem);
+}
+
+.page-kicker {
+    color: #a9a9a9;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    margin: 0 0 1.5rem;
+    text-transform: uppercase;
+}
+
+.page-title {
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(4rem, 10vw, 8.5rem);
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.page-title span {
+    color: #777;
+}
+
+.page-intro {
+    color: #c5c5c5;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 2rem 0 0;
+    max-width: 28rem;
+}
+
+.skills-gallery {
+    padding-bottom: 8rem;
+    padding-top: 7rem;
+}
+
+.skill-category {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 3rem 0 6rem;
+}
+
+.category-heading {
+    align-items: flex-start;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.category-number {
+    color: #777;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding-top: 0.4rem;
+}
+
+.category-heading h2 {
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0 0 0.8rem;
+    text-transform: uppercase;
+}
+
+.category-heading p {
+    color: #999;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.showcase-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+}
+
+.showcase-card {
+    background: #181818;
+    border: 1px solid #2c2c2c;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.showcase-card:hover {
+    border-color: #777;
+    transform: translateY(-6px);
+}
+
+.showcase-media {
+    align-items: center;
+    aspect-ratio: 16 / 10;
+    background: #222;
+    color: #a8a8a8;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.showcase-media::before {
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    content: '';
+    inset: 1rem;
+    pointer-events: none;
+    position: absolute;
+}
+
+.showcase-media i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.showcase-media span {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.showcase-media img,
+.showcase-media video {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.media-code {
+    background: linear-gradient(135deg, #252525, #111);
+}
+
+.media-modeling {
+    background: linear-gradient(135deg, #263235, #121617);
+}
+
+.media-vfx {
+    background: linear-gradient(135deg, #342b2b, #171212);
+}
+
+.media-ui {
+    background: linear-gradient(135deg, #34312a, #171612);
+}
+
+.showcase-content {
+    padding: 1.5rem;
+}
+
+.showcase-type {
+    color: #8f8f8f;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.showcase-content h3 {
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    margin: 0.7rem 0 0.6rem;
+}
+
+.showcase-content p {
+    color: #a5a5a5;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 576px) {
+    .skills-hero .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .page-title {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+        letter-spacing: -0.03em;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .page-title .title-word {
+        display: block;
+    }
+
+    .category-heading {
+        gap: 1rem;
+    }
+
+    .skills-gallery {
+        padding-top: 4rem;
+    }
+}
