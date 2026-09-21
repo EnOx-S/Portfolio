@@ -97,7 +97,27 @@
     max-width: 600px;
 }
 
+.about-intro {
+    color: #b0b0b0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+}
+
+.about-intro p {
+    margin: 0 0 1.25rem;
+}
+
+.about-intro p:last-child {
+    margin-bottom: 0;
+}
+
 .languages {
+    margin-top: 3rem;
+}
+
+.languages-group + .languages-group {
     margin-top: 3rem;
 }
 
@@ -142,6 +162,24 @@
     margin-bottom: 1rem;
     overflow: hidden;
     padding: 0.5rem;
+}
+
+.berber-flag {
+    align-items: center;
+    background: linear-gradient(to bottom, #085b8b 0 33.33%, #02b90f 33.33% 66.66%, #f2f547 66.66% 100%);
+    border-radius: 8px;
+    display: inline-flex;
+    height: 4.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    width: 6rem;
+}
+
+.berber-symbol {
+    color: #c8102e;
+    font-size: 3rem;
+    line-height: 1;
 }
 
 .language-item p,

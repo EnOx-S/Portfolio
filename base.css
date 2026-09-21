@@ -103,6 +103,12 @@ body {
     width: 100%;
 }
 
+.nav-links .page-link {
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+    margin-left: 0.5rem;
+    padding-left: 2rem;
+}
+
 .nav-links a.current,
 .mobile-nav-links a.current {
     font-weight: 700;
@@ -188,6 +194,12 @@ body {
 
 .mobile-nav-links a:hover {
     color: #666;
+}
+
+.mobile-nav-links .page-link {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 0.25rem;
+    padding-top: 1.5rem;
 }
 
 .site-footer {
