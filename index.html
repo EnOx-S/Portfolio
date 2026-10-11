@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mimoun Ylian • Portfolio</title>
     <link rel="stylesheet" type="text/css" href="base.css">
     <link rel="stylesheet" type="text/css" href="home.css">
@@ -14,7 +16,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
             <p id="name">Mimoun Ylian</p>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -24,13 +26,13 @@
                 <li class="page-link"><a href="skills.html">Skills</a></li>
             </ul>
             <ul class="social-links">
-                <li><a href="https://github.com/EnOx-S"><i class="bi bi-github"></i></a></li>
-                <li><a href="https://discord.com/users/1399807312969072661"><i class="bi bi-discord"></i></a></li>
-                <li><a href="https://www.instagram.com/ylian.off/"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="https://www.tiktok.com/@ylian.off"><i class="bi bi-tiktok"></i></a></li>
-                <li><a href="https://www.youtube.com/@Ylian.officiel"><i class="bi bi-youtube"></i></a></li>
+                <li><a href="https://github.com/EnOx-S" aria-label="GitHub"><i class="bi bi-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://discord.com/users/1399807312969072661" aria-label="Discord"><i class="bi bi-discord" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/ylian.off/" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.tiktok.com/@ylian.off" aria-label="TikTok"><i class="bi bi-tiktok" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/@Ylian.officiel" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
             </ul>
-            <button class="burger-menu" id="burgerMenu">
+            <button class="burger-menu" id="burgerMenu" type="button" aria-label="Toggle navigation menu" aria-controls="mobileMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -99,7 +101,7 @@
 
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Programming Languages</h2>
+            <h2 class="section-title">Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
@@ -203,8 +205,9 @@
         const mobileMenu = document.getElementById('mobileMenu');
 
         burgerMenu.addEventListener('click', () => {
-            burgerMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
+            const isOpen = burgerMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active', isOpen);
+            burgerMenu.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Fermer le menu quand on clique sur un lien
@@ -212,8 +215,35 @@
             link.addEventListener('click', () => {
                 burgerMenu.classList.remove('active');
                 mobileMenu.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
             });
         });
+
+        const revealItems = document.querySelectorAll(
+            '.section-title, .about-intro, .languages, .skills-grid > *, .tools-grid > *, .section-description, .projects-grid > *'
+        );
+
+        if ('IntersectionObserver' in window) {
+            revealItems.forEach(item => {
+                item.classList.add('reveal-on-scroll');
+
+                if (item.parentElement.matches('.skills-grid, .tools-grid, .projects-grid')) {
+                    const itemIndex = Array.from(item.parentElement.children).indexOf(item);
+                    item.style.setProperty('--reveal-delay', `${Math.min(itemIndex * 70, 280)}ms`);
+                }
+            });
+
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            revealItems.forEach(item => revealObserver.observe(item));
+        }
     </script>
 </body>
 </html>

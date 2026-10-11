@@ -151,7 +151,7 @@
 
 .language-item:hover {
     border-color: #fff;
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .language-item .fi {
@@ -208,7 +208,7 @@
 .skill-card:hover {
     background-color: #262626;
     border-color: floralwhite;
-    transform: translateY(-8px);
+    transform: translateY(-4px);
 }
 
 .skill-card i {
@@ -253,7 +253,7 @@
 }
 
 .tool-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .tool-item i {
@@ -277,7 +277,7 @@
 .projects-grid {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
 
 .project-card {
@@ -290,7 +290,7 @@
 
 .project-card:hover {
     border-color: floralwhite;
-    transform: translateY(-8px);
+    transform: translateY(-4px);
 }
 
 .project-card h3 {
@@ -307,6 +307,53 @@
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.65s ease var(--reveal-delay, 0ms), transform 0.65s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (hover: none) {
+    .language-item:hover,
+    .skill-card:hover,
+    .tool-item:hover,
+    .project-card:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-title,
+    .hero-subtitle {
+        animation: none;
+    }
+
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .language-item,
+    .skill-card,
+    .tool-item,
+    .project-card {
+        transition: none;
+    }
+
+    .language-item:hover,
+    .skill-card:hover,
+    .tool-item:hover,
+    .project-card:hover {
+        transform: none;
+    }
 }
 
 @media (max-width: 992px) {
@@ -331,5 +378,18 @@
         font-size: 2rem;
         letter-spacing: 0.5px;
         margin: 1rem 0 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 2.5rem;
     }
 }
